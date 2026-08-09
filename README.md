@@ -4,6 +4,11 @@
 
 一个面向公务员考试的 AI 智能训练工作台。顶部品牌栏 + 左侧项目导航 + 右侧动态内容区，覆盖**行测专项练习、申论智能批改、错题归因、AI 拍照解题、知识库管理、学情数据洞察、AI 备考助手**等核心场景。所有数据保存在浏览器本地（localStorage + IndexedDB），默认使用内置规则引擎模拟 AI 能力，填入任意 OpenAI 兼容接口后即可无缝切换为真实大模型，**业务代码零改动**。
 
+## 🌐 在线演示
+
+- **方案 A（推荐 · 国内直连）**：[AI 公考智能训练工作台 · 在线体验](https://907aaa7c33354a6ba23c82232079fcc1.bj7.agentos-app.net) —— 部署在 CloudStudio，中国大陆浏览器可直接打开。
+- **方案 B（GitHub Pages）**：`https://xiaokaishuibuxing.github.io/ai-exam-workbench/` —— 需在仓库 `Settings → Pages` 中开启后访问（国内访问可能较慢）。
+
 ---
 
 ## ✨ 功能特性
