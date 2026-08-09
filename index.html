@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 公考智能训练工作台</title>
+  <meta name="description" content="AI 公务员考试智能训练工作台 · 行测专项 / 申论批改 / 错题归因 / 拍照解题 / 知识库 / 学情数据，纯前端可部署 GitHub Pages">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6bed'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='700' fill='white' text-anchor='middle' font-family='sans-serif'%3EAI%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="app">
+    <!-- 左上角品牌（桌面端） -->
+    <div class="brand">
+      <div class="brand-logo">AI</div>
+      <div>
+        <div class="brand-name">AI 公考智能训练工作台</div>
+        <div class="brand-sub">SMART EXAM WORKBENCH</div>
+      </div>
+    </div>
+
+    <!-- 顶栏（由 layout.js 渲染） -->
+    <header class="topbar" id="topbar"></header>
+
+    <!-- 左侧导航（由 layout.js 渲染） -->
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- 移动端遮罩 -->
+    <div class="scrim" id="scrim"></div>
+
+    <!-- 主内容区（由 router 渲染各视图） -->
+    <main class="main" id="main"></main>
+  </div>
+
+  <!-- ============ 脚本：core → data → components → views → 启动 ============ -->
+  <script src="js/core/utils.js"></script>
+  <script src="js/core/store.js"></script>
+  <script src="js/core/db.js"></script>
+  <script src="js/core/router.js"></script>
+  <script src="js/core/api.js"></script>
+  <script src="js/core/ai.js"></script>
+  <script src="js/core/ai2.js"></script>
+
+  <script src="js/data/questions.js"></script>
+  <script src="js/data/seed.js"></script>
+
+  <script src="js/components/ui.js"></script>
+  <script src="js/components/layout.js"></script>
+
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/practice.js"></script>
+  <script src="js/views/shenlun.js"></script>
+  <script src="js/views/mistakes.js"></script>
+  <script src="js/views/photo.js"></script>
+  <script src="js/views/knowledge.js"></script>
+  <script src="js/views/stats.js"></script>
+  <script src="js/views/assistant.js"></script>
+  <script src="js/views/settings.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+      try {
+        App.store.load();
+        App.layout.mount();
+        App.router.start(document.getElementById('main'));
+      } catch (e) {
+        console.error('启动失败', e);
+        document.getElementById('main').innerHTML =
+          '<div class="card card-pad" style="margin:40px auto;max-width:560px"><h3 class="c-danger">应用启动失败</h3>' +
+          '<pre class="fs-12 t3" style="white-space:pre-wrap">' + String(e && e.stack || e) + '</pre></div>';
+      }
+    })();
+  </script>
+</body>
+</html>
